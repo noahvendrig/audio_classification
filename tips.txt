@@ -1,0 +1,11 @@
+librosa
+kaggle
+recognising audio kaggle birds
+spectrogram
+check kaggle pipelines
+one shot learning
+shot sequence for sound
+synthesise the voice resemble.ai open source
+
+
+pytorch 

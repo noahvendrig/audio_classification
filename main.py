@@ -135,7 +135,7 @@ model.summary()
 USE_PREVIOUS_WEIGHTS = True
 checkpoint_path = fulldatasetpath+'/saved_models/weights.best.basic_cnn.hdf5'
 
-TRAIN = False
+TRAIN = True
 
 if USE_PREVIOUS_WEIGHTS:
     # Loads the weights
@@ -153,7 +153,7 @@ if TRAIN:
     from tensorflow.keras.callbacks import ModelCheckpoint 
     from datetime import datetime 
 
-    num_epochs = 1000
+    num_epochs = 10
     num_batch_size = 256
 
     checkpointer = ModelCheckpoint(filepath=fulldatasetpath+'/saved_models/weights.best.basic_cnn.hdf5', 
@@ -169,10 +169,12 @@ if TRAIN:
 
     # Evaluating the model on the training and testing set
     score = model.evaluate(x_train, y_train, verbose=0)
+    print("Training Loss: ", score[0])
     print("Training Accuracy: ", score[1])
 
     score = model.evaluate(x_test, y_test, verbose=0)
-    print("Testing Accuracy: ", score[1])
+    print("Validation Loss: ", score[0])
+    print("Validation Accuracy: ", score[1])
 
 else:
     # Evaluating the model on the training and testing set
@@ -200,7 +202,7 @@ else:
 
     # Class: Air Conditioner
 
-    filename = fulldatasetpath+'testing_audio/'+'carhorn.wav' 
+    filename = fulldatasetpath+'testing_audio/'+'dogbark.wav' 
     print_prediction(filename)
     
 
